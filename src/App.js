@@ -25,39 +25,33 @@ class App extends Component {
     };
     const updatedItems = [...this.state.items, newItem];
 
-    this.setState(
-      {
-        items: updatedItems,
-        item: "",
-        id: uuid(),
-        editItem: false
-      },
-      () => console.log(this.state)
-    );
+    this.setState({
+      items: updatedItems,
+      item: "",
+      id: uuid(),
+      editItem: false
+    });
   };
   clearList = () => {
     this.setState({
-      items:[]
-    })
-    //console.log("clear list ");
+      items: []
+    });
   };
   handleDelete = id => {
-    const filterItems= this.state.items.filter(item=> item.id !== id)
+    const filteredItems = this.state.items.filter(item => item.id !== id);
     this.setState({
-      items:filterItems
-    })
-    //console.log(`handle edit ${id}`);
+      items: filteredItems
+    });
   };
   handleEdit = id => {
-    const filterItems= this.state.items.filter(item=> item.id !== id)
-    //console.log(`edit edit ${id}`);
-    const selectedItems= this.state.items.find(item=>item.id ==id)
+    const filteredItems = this.state.items.filter(item => item.id !== id);
+    const selectedItem = this.state.items.find(item => item.id === id);
     this.setState({
-       items:filterItems,
-       items:selectedItems.title,
-       id:id,
-       editItem:true,
-    })
+      items: filteredItems,
+      item: selectedItem.title,
+      id: id,
+      editItem: true
+    });
   };
   render() {
     return (
@@ -83,6 +77,5 @@ class App extends Component {
     );
   }
 }
-
 
 export default App;
