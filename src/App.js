@@ -73,7 +73,11 @@ class App extends Component {
             />
           </div>
         </div>
+        <p className="author text-center text-capitalize"><hr></hr>
+          Developed  by Akhilesh Sharma
+        </p>
       </div>
+      
     );
   }
 }
